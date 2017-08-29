@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <link rel="stylesheet" href="style.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script>
+        $(document).ready(function(){
+            $('img').on('click', function(){
+                var id = this.id;
+                $.get('https://anapioficeandfire.com/api/houses/'+ id , function(res){
+                    var got_info="";
+                    got_info += "<h4>"+ "Name: " + res['name'] + "</h4>";
+                    got_info += "<h4>"+ "Words: " + res['words'] + "</h4>";
+                    got_info += "<h4>"+ "Titles: " + res['titles'] + "</h4>";
+                    $('#details_box').html(got_info);
+
+                });
+
+
+            });
+      
+
+
+
+        });
+    
+    </script>
+</head>
+<body>
+    <div id="houses">
+        <img id="362" src="gameofthrones/stark.jpg">
+        <img id="229" src="gameofthrones/lannister.jpg">
+    </div>
+
+    <div id="details">
+        <fieldset disabled="">
+            <legend>House Details</legend>
+            <div id="details_box"></div>
+        </fieldset>
+    </div>
+    <div id="houses">
+        <img id="17" src="gameofthrones/baratheon.png">
+        <img id="169" src="gameofthrones/greyjoy.jpg">
+    </div>
+
+
+
+    
+</body>
+</html>
